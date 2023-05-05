@@ -72,7 +72,8 @@ data = {"city":{"value":city, "color":get_random_color()},
         "wind_direction":{"value":wind_direction, "color":get_random_color()},
         "love_days":{"value":get_count() + 1, "color":get_random_color()},
         "birthday_left":{"value":get_birthday() - 1, "color":get_random_color()},
-#         "words":{"value":get_words(), "color":get_random_color()}}
+#         "words":{"value":get_words(), "color":get_random_color()}
+       }
 # get_words()
 res = wm.send_template(user_id, template_id, data)
 print(res)
