@@ -56,6 +56,7 @@ data = {"city":{"value":city, "color":get_random_color()},
         "temperature_high":{"value":temperature, "color":get_random_color()},
         "love_days":{"value":get_count() + 1, "color":get_random_color()},
         "birthday_left":{"value":get_birthday() - 1, "color":get_random_color()},
-#         "words":{"value":get_words(), "color":get_random_color()}}
+#         "words":{"value":get_words(), "color":get_random_color()}
+       }
 res = wm.send_template(user_id, template_id, data)
 print(res)
