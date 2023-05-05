@@ -22,7 +22,7 @@ weather_key = os.environ["WEATHER_KEY"]
 def get_weather():
   url = "https://api.seniverse.com/v3/weather/daily.json?key=Sm5EQa8fMVXzsMxjw&location=beijing&language=zh-Hans&unit=c&start=-1&days=2"
   res = requests.get(url).json()
-  weather = res['results'][0]['lives'][0]
+  weather = res['results'][0]['daily'][0]
   return weather['text_day'], math.floor(int(weather['high']))
       
   
