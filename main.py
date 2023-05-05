@@ -20,10 +20,10 @@ template_id = os.environ["TEMPLATE_ID"]
 weather_key = os.environ["WEATHER_KEY"]
 
 def get_weather():
-  url = "https://restapi.amap.com/v3/weather/weatherInfo?key="+weather_key+"&city=130600"
+  url = "https://api.seniverse.com/v3/weather/daily.json?key=Sm5EQa8fMVXzsMxjw&location=beijing&language=zh-Hans&unit=c&start=-1&days=2"
   res = requests.get(url).json()
-  weather = res['lives'][0]
-  return weather['weather'], math.floor(int(weather['temperature']))
+  weather = res['results'][0]['lives']
+  return weather['text_day'], math.floor(int(weather['high']))
       
   
 
@@ -55,7 +55,7 @@ data = {"city":{"value":city, "color":get_random_color()},
         "weather":{"value":wea, "color":get_random_color()},
         "temperature":{"value":temperature, "color":get_random_color()},
         "love_days":{"value":get_count() + 1, "color":get_random_color()},
-        "birthday_left":{"value":get_birthday(), "color":get_random_color()},
+        "birthday_left":{"value":get_birthday() - 1, "color":get_random_color()},
         "words":{"value":get_words(), "color":get_random_color()}}
 res = wm.send_template(user_id, template_id, data)
 print(res)
