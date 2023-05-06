@@ -48,11 +48,9 @@ def get_birthday():
     next = next.replace(year=next.year + 1)
   return (next - today).days
 
-# def get_words():
-#   words = requests.get("https://api.shadiao.pro/chp")
-#   if words.status_code != 200:
-#     return "一想到你，我这张脸就泛起微笑"
-#   return words.json()['data']['text']
+def get_words():
+  words = requests.get("https://api.shadiao.pro/chp")
+  return response.json()['data']
 
 def get_random_color():
   return "#%06x" % random.randint(0, 0xFFFFFF)
@@ -72,7 +70,7 @@ data = {"city":{"value":city, "color":get_random_color()},
         "wind_direction":{"value":wind_direction, "color":get_random_color()},
         "love_days":{"value":get_count() + 1, "color":get_random_color()},
         "birthday_left":{"value":get_birthday() - 1, "color":get_random_color()},
-#         "words":{"value":get_words(), "color":get_random_color()}
+        "words":{"value":get_words(), "color":get_random_color()}
        }
 # get_words()
 res = wm.send_template(user_id, template_id, data)
